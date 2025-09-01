@@ -3918,3 +3918,36 @@ select.form-control {
     color: var(--color-info);
   }
 }
+
+
+
+
+/* Ensure the widgets are displayed in one horizontal row */
+.widget-cards-row {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;           /* Space between cards - adjust as needed */
+    justify-content: center;
+    align-items: stretch; /* Vertically aligns all cards */
+    width: 100%;
+    flex-wrap: nowrap;   /* Prevent wrapping to next line on desktop */
+    margin: 0 auto;
+    max-width: 1120px;
+}
+
+/* Widget cards styling for consistent width */
+.widget-card {
+    flex: 1 1 0;
+    max-width: 340px;
+    min-width: 220px;       /* Prevent cards from getting too narrow */
+    background: var(--color-surface, #fff);
+    border-radius: var(--radius-lg, 12px);
+    box-shadow: 0 2px 7px 0 var(--color-card-border, #ececec);
+    border: 1.5px solid var(--color-card-border, #ececec);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    /* Guarantee cards stay the same height */
+    height: 100%;
+}
