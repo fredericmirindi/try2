@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frederic Mirindi - Academic Portfolio</title>
+    <meta name="description" content="PhD Candidate in Economics & Econometrics at University of Manitoba, specializing in AI applications in economic analysis">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2 class="hero-nom">Frederic Mirindi</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="research">Research</a></li>
+                <li><a href="#" class="nav-link" data-page="publications">Publications</a></li>
+                <li><a href="#" class="nav-link" data-page="conferences">Conferences</a></li>
+                <li><a href="#" class="nav-link" data-page="ai-implementation">AI Tools</a></li>
+                <li><a href="#" class="nav-link" data-page="academic-map">Academic Map</a></li>
+                <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <!-- Floating Background Shapes -->
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+            <div class="floating-shape shape-5"></div>
+
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">
+                                <span class="typing-text">AI-Powered Economic Research</span>
+                            </h1>
+                            <p class="hero-subtitle">PhD Candidate in Economics & Econometrics</p>
+                            <p class="hero-description">
+                                Pioneering the intersection of artificial intelligence and economic analysis. 
+                                Developing innovative machine learning models for economic forecasting, policy analysis, 
+                                and sustainable development research across global markets.
+                            </p>
+                            <div class="hero-buttons">
+                                <button class="btn btn--primary btn--lg" data-page="research">
+                                    Explore Research
+                                </button>
+                                <button class="btn btn--outline btn--lg" data-page="publications">
+                                    View Publications
+                                </button>
+                            </div>
+                        </div>
+                        <div class="profile-container">
+                            <div class="profile-image">
+                                <div class="profile-placeholder">FM</div>
+                            </div>
+                            <div class="profile-status">
+                                <span class="status status--success">Available for Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Metrics Widget Section -->
+            <div class="widget-responsive-section">
+                <div class="widget-cards-row">
+                    <!-- Local Time Widget -->
+                    <div class="widget-card">
+                        <div class="widget-card-icon">🕒</div>
+                        <div class="widget-card-content">
+                            <div class="widget-card-title">Winnipeg Time</div>
+                            <div class="widget-time-main" id="watch-time">--:--:--</div>
+                            <div class="widget-card-secondary">Central Time Zone</div>
+                            <div class="widget-card-caption">Research hours: Mon-Fri 8AM-6PM</div>
+                        </div>
+                    </div>
+
+                    <!-- Weather Widget -->
+                    <div class="widget-card">
+                        <div class="widget-card-icon">🌤️</div>
+                        <div class="widget-card-content">
+                            <div class="widget-card-title">Local Weather</div>
+                            <div class="widget-weather-main">
+                                <span class="widget-weather-icon" id="weather-icon">☀️</span>
+                                <span class="widget-weather-temp" id="weather-temp">--°C</span>
+                            </div>
+                            <div class="widget-weather-desc" id="weather-desc">Loading...</div>
+                            <div class="widget-card-caption">Winnipeg, Manitoba</div>
+                        </div>
+                    </div>
+
+                    <!-- Economic Insights Widget -->
+                    <div class="widget-card">
+                        <div class="widget-card-icon">💡</div>
+                        <div class="widget-card-content">
+                            <div class="widget-card-title">Economic Insight</div>
+                            <div class="widget-quote-main" id="fact-box">Loading economic insight...</div>
+                            <button class="widget-details-btn" onclick="displayRandomFact()">New Insight</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Achievements -->
+            <section class="highlights-section">
+                <div class="container">
+                    <h2>Key Achievements</h2>
+                    <div class="highlights-grid">
+                        <div class="highlight-card" data-aos="fade-up" data-aos-delay="0">
+                            <h3 class="highlight-number" data-target="20">20+</h3>
+                            <p>Published Papers</p>
+                        </div>
+                        <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="highlight-number" data-target="25">25+</h3>
+                            <p>Conference Presentations</p>
+                        </div>
+                        <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="highlight-number" data-target="15">15+</h3>
+                            <p>AI Models Developed</p>
+                        </div>
+                        <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                            <h3 class="highlight-number" data-target="5">5+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Research Page -->
+        <section id="research" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Research Portfolio</h1>
+                    <p>Exploring the frontiers of AI-driven economic analysis and policy simulation</p>
+                </div>
+
+                <!-- Research Navigation -->
+                <div class="research-tabs">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="areas">Research Areas</button>
+                    <button class="tab-btn" data-tab="timeline">Timeline</button>
+                    <button class="tab-btn" data-tab="collaborations">Collaborations</button>
+                    <button class="tab-btn" data-tab="impact">Impact</button>
+                </div>
+
+                <!-- Overview Tab -->
+                <div id="overview-tab" class="tab-content active">
+                    <div class="research-overview">
+                        <div class="research-stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">📊</div>
+                                <div class="stat-content">
+                                    <h3>Total Publications</h3>
+                                    <div class="stat-number">21</div>
+                                    <p>Peer-reviewed articles and conference papers</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🔬</div>
+                                <div class="stat-content">
+                                    <h3>Research Areas</h3>
+                                    <div class="stat-number">4</div>
+                                    <p>Primary domains of expertise</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🤝</div>
+                                <div class="stat-content">
+                                    <h3>Collaborations</h3>
+                                    <div class="stat-number">12</div>
+                                    <p>International research partnerships</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🏆</div>
+                                <div class="stat-content">
+                                    <h3>Citations</h3>
+                                    <div class="stat-number">450+</div>
+                                    <p>Academic impact and recognition</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="research-charts">
+                            <div class="chart-container">
+                                <h3>Publications by Year</h3>
+                                <canvas id="publications-year-chart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <h3>Research Areas Distribution</h3>
+                                <canvas id="areas-distribution-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Areas Tab -->
+                <div id="areas-tab" class="tab-content">
+                    <div class="research-areas-grid">
+                        <div class="area-card" data-area="ai-economics">
+                            <div class="area-icon">🤖</div>
+                            <h3>AI in Economics</h3>
+                            <p>Machine learning applications in economic forecasting and policy analysis.</p>
+                            <div class="area-stats">
+                                <span>8 Publications</span>
+                                <span>180+ Citations</span>
+                            </div>
+                            <button class="btn btn--outline" onclick="showAreaDetails('ai-economics')">
+                                View Details
+                            </button>
+                        </div>
+
+                        <div class="area-card" data-area="econometrics">
+                            <div class="area-icon">📈</div>
+                            <h3>Econometrics & Data Science</h3>
+                            <p>Advanced statistical methods and big data analytics for economic research.</p>
+                            <div class="area-stats">
+                                <span>6 Publications</span>
+                                <span>145+ Citations</span>
+                            </div>
+                            <button class="btn btn--outline" onclick="showAreaDetails('econometrics')">
+                                View Details
+                            </button>
+                        </div>
+
+                        <div class="area-card" data-area="development">
+                            <div class="area-icon">🌍</div>
+                            <h3>Development Economics</h3>
+                            <p>Economic development patterns and social impact in Sub-Saharan Africa.</p>
+                            <div class="area-stats">
+                                <span>4 Publications</span>
+                                <span>95+ Citations</span>
+                            </div>
+                            <button class="btn btn--outline" onclick="showAreaDetails('development')">
+                                View Details
+                            </button>
+                        </div>
+
+                        <div class="area-card" data-area="construction">
+                            <div class="area-icon">🏗️</div>
+                            <h3>Construction Technology</h3>
+                            <p>AI applications in building information modeling and construction efficiency.</p>
+                            <div class="area-stats">
+                                <span>3 Publications</span>
+                                <span>75+ Citations</span>
+                            </div>
+                            <button class="btn btn--outline" onclick="showAreaDetails('construction')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Tab -->
+                <div id="timeline-tab" class="tab-content">
+                    <div class="timeline-filters">
+                        <button class="timeline-filter-btn active" data-filter="all">All Events</button>
+                        <button class="timeline-filter-btn" data-filter="publication">Publications</button>
+                        <button class="timeline-filter-btn" data-filter="conference">Conferences</button>
+                        <button class="timeline-filter-btn" data-filter="collaboration">Collaborations</button>
+                        <button class="timeline-filter-btn" data-filter="award">Awards</button>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div id="timeline-events" class="timeline-events">
+                            <!-- Timeline events will be dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaborations Tab -->
+                <div id="collaborations-tab" class="tab-content">
+                    <div class="collaboration-section">
+                        <h3>Research Network</h3>
+                        <p>Interactive visualization of academic collaborations and partnerships</p>
+                        <div class="network-container">
+                            <svg id="collaboration-network-svg" width="800" height="400">
+                                <!-- Network will be dynamically generated -->
+                            </svg>
+                            <div class="network-controls">
+                                <button class="btn btn--secondary" onclick="resetNetwork()">Reset View</button>
+                                <button class="btn btn--secondary" onclick="centerNetwork()">Center</button>
+                            </div>
+                        </div>
+                        
+                        <div class="collaborators-list">
+                            <h4>Key Collaborators</h4>
+                            <div class="collaborator-tags">
+                                <span class="tag">University of Manitoba</span>
+                                <span class="tag">Booth University College</span>
+                                <span class="tag">Bank of Canada</span>
+                                <span class="tag">Statistics Canada</span>
+                                <span class="tag">University of Warwick</span>
+                                <span class="tag">University of Oxford</span>
+                                <span class="tag">University of Cape Town</span>
+                                <span class="tag">World Bank</span>
+                                <span class="tag">UNDP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact Tab -->
+                <div id="impact-tab" class="tab-content">
+                    <div class="impact-metrics">
+                        <div class="impact-cards">
+                            <div class="impact-card">
+                                <h3>Citation Impact</h3>
+                                <canvas id="citation-impact-chart"></canvas>
+                            </div>
+                            <div class="impact-card">
+                                <h3>Journal Quality</h3>
+                                <canvas id="journal-impact-chart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-highlights">
+                            <h3>Research Impact Highlights</h3>
+                            <ul class="impact-list">
+                                <li>📈 450+ total citations across all publications</li>
+                                <li>🏆 Best Paper Award - Sustainable Economics Society (2023)</li>
+                                <li>🌟 Featured research in 3 major news outlets</li>
+                                <li>🤝 3-year collaboration agreement with Bank of Canada</li>
+                                <li>📊 Research cited in policy reports by Statistics Canada</li>
+                                <li>🎯 H-index of 12 with consistent growth trajectory</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Page -->
+        <section id="publications" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Publications</h1>
+                    <p>Peer-reviewed research contributing to AI-driven economic analysis</p>
+                </div>
+
+                <!-- Publication Filters -->
+                <div class="publication-filters">
+                    <div class="filter-group">
+                        <label for="year-filter">Year:</label>
+                        <select id="year-filter" class="form-control">
+                            <option value="all">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="type-filter">Type:</label>
+                        <select id="type-filter" class="form-control">
+                            <option value="all">All Types</option>
+                            <option value="journal">Journal Articles</option>
+                            <option value="conference">Conference Papers</option>
+                            <option value="preprint">Preprints</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <button id="view-toggle" class="btn btn--secondary">
+                            <span class="toggle-icon">☰</span>
+                            <span class="toggle-text">List View</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publications Container -->
+                <div id="publications-container" class="publications-grid grid-view">
+                    <!-- Publications will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Map Page -->
+        <section id="academic-map" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Academic Journey Map</h1>
+                    <p>Global network of research, education, and collaboration locations</p>
+                </div>
+
+                <!-- Map Legend -->
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-marker education"></div>
+                        <span>Current Education & Work</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker conference"></div>
+                        <span>Conference Presentations</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker collaboration"></div>
+                        <span>Research Collaborations</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker seminar"></div>
+                        <span>Guest Lectures & Seminars</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Map -->
+                <div class="map-container">
+                    <div id="academic-world-map" class="academic-map"></div>
+                </div>
+
+                <!-- Location Summary -->
+                <div class="location-summary">
+                    <div class="location-stats">
+                        <div class="stat-item">
+                            <strong>8</strong>
+                            <span>Countries Visited</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>15</strong>
+                            <span>Institutions</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>25+</strong>
+                            <span>Presentations</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>12</strong>
+                            <span>Collaborations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Details -->
+                <div class="location-details">
+                    <h3>Key Academic Locations</h3>
+                    <div class="location-cards">
+                        <div class="location-card primary">
+                            <div class="location-header">
+                                <h4>🇨🇦 Winnipeg, Canada</h4>
+                                <span class="location-type">Primary Base</span>
+                            </div>
+                            <ul>
+                                <li>PhD Studies - University of Manitoba</li>
+                                <li>Lecturer - Booth University College</li>
+                                <li>Ongoing research since 2020</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="location-card">
+                            <div class="location-header">
+                                <h4>🇬🇧 United Kingdom</h4>
+                                <span class="location-type">Research Collaborations</span>
+                            </div>
+                            <ul>
+                                <li>University of Warwick - Guest Seminar</li>
+                                <li>University of Oxford - Research Presentation</li>
+                                <li>Swansea University - HAI Workshop</li>
+                            </ul>
+                        </div>
+
+                        <div class="location-card">
+                            <div class="location-header">
+                                <h4>🇬🇷 Athens, Greece</h4>
+                                <span class="location-type">International Conference</span>
+                            </div>
+                            <ul>
+                                <li>MARBLE 2025 Conference Speaker</li>
+                                <li>Blockchain Economics Research</li>
+                                <li>Game-Theoretic Approach Presentation</li>
+                            </ul>
+                        </div>
+
+                        <div class="location-card">
+                            <div class="location-header">
+                                <h4>🇨🇦 Montréal, Canada</h4>
+                                <span class="location-type">National Conference</span>
+                            </div>
+                            <ul>
+                                <li>Canadian Economics Association</li>
+                                <li>Development Economics Research</li>
+                                <li>Sub-Saharan Africa Studies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conferences Page -->
+        <section id="conferences" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Conference Presentations</h1>
+                    <p>International speaking engagements and research presentations</p>
+                </div>
+
+                <div class="conferences-timeline">
+                    <div class="conference-card">
+                        <div class="conference-date">
+                            <span class="month">Mar</span>
+                            <span class="day">15</span>
+                            <span class="year">2025</span>
+                        </div>
+                        <div class="conference-content">
+                            <h3>MARBLE 2025 – 6th International Conference on Mathematical Research for Blockchain Economy</h3>
+                            <div class="conference-location">📍 Athens, Greece</div>
+                            <div class="conference-role">🎤 Speaker</div>
+                            <div class="conference-topic">Adaptive Proof-of-Stake Governance: A Game-Theoretic Approach to Consensus Mechanisms</div>
+                            <div class="conference-link">
+                                <a href="#" class="btn btn--outline btn--sm">Event Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conference-card">
+                        <div class="conference-date">
+                            <span class="month">Jun</span>
+                            <span class="day">02</span>
+                            <span class="year">2024</span>
+                        </div>
+                        <div class="conference-content">
+                            <h3>59th Annual Meetings of the Canadian Economics Association</h3>
+                            <div class="conference-location">📍 Université du Québec à Montréal</div>
+                            <div class="conference-role">🎤 Speaker</div>
+                            <div class="conference-topic">Family Size and Child Outcomes in Sub-Saharan Africa: The Role of Social Norms</div>
+                            <div class="conference-link">
+                                <a href="#" class="btn btn--outline btn--sm">Event Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conference-card">
+                        <div class="conference-date">
+                            <span class="month">Nov</span>
+                            <span class="day">18</span>
+                            <span class="year">2023</span>
+                        </div>
+                        <div class="conference-content">
+                            <h3>Graduate Seminar Series, Centre for the Study of Women and Gender</h3>
+                            <div class="conference-location">📍 University of Warwick</div>
+                            <div class="conference-role">🎤 Presenter</div>
+                            <div class="conference-topic">Digital Feminism: Intersectionality and Activism in the Age of Social Media</div>
+                            <div class="conference-link">
+                                <a href="#" class="btn btn--outline btn--sm">View Slides</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conference-card">
+                        <div class="conference-date">
+                            <span class="month">Sep</span>
+                            <span class="day">25</span>
+                            <span class="year">2023</span>
+                        </div>
+                        <div class="conference-content">
+                            <h3>Graduate Seminars in Economic and Social History</h3>
+                            <div class="conference-location">📍 University of Oxford</div>
+                            <div class="conference-role">🎤 Presenter</div>
+                            <div class="conference-topic">From Rubber to Cobalt: Evolving Patterns of Resource Exploitation and Social Impact in the Democratic Republic of Congo</div>
+                            <div class="conference-link">
+                                <a href="#" class="btn btn--outline btn--sm">Workshop Materials</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conference-card">
+                        <div class="conference-date">
+                            <span class="month">Oct</span>
+                            <span class="day">12</span>
+                            <span class="year">2023</span>
+                        </div>
+                        <div class="conference-content">
+                            <h3>TheoriseHAI Workshop, 12th International Conference on Human-Agent Interaction (HAI)</h3>
+                            <div class="conference-location">📍 Swansea, UK</div>
+                            <div class="conference-role">🎤 Presenter</div>
+                            <div class="conference-topic">A Review of Hybrid Machine Learning Approaches for Enhancing Human-Agent Interaction</div>
+                            <div class="conference-link">
+                                <a href="#" class="btn btn--outline btn--sm">Workshop Materials</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Implementation Page -->
+        <section id="ai-implementation" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>AI Tools & Implementation</h1>
+                    <p>Interactive demonstrations of AI applications in economic analysis</p>
+                </div>
+
+                <div class="ai-tools-grid">
+                    <!-- Economic Forecasting Tool -->
+                    <div class="ai-tool-card">
+                        <h3>🔮 AI-Powered Economic Forecasting</h3>
+                        <p>Development of machine learning models for accurate economic predictions and trend analysis</p>
+                        
+                        <div class="tool-interface">
+                            <div class="input-group">
+                                <label for="indicator-select" class="form-label">Economic Indicator</label>
+                                <select id="indicator-select" class="form-control">
+                                    <option value="gdp">GDP Growth</option>
+                                    <option value="inflation">Inflation Rate</option>
+                                    <option value="unemployment">Unemployment</option>
+                                    <option value="exchange">Exchange Rate</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="forecast-period" class="form-label">Forecast Period (months)</label>
+                                <select id="forecast-period" class="form-control">
+                                    <option value="6">6 months</option>
+                                    <option value="12">12 months</option>
+                                    <option value="24">24 months</option>
+                                </select>
+                            </div>
+                            
+                            <button id="run-forecast" class="btn btn--primary">Generate Forecast</button>
+                            
+                            <div class="forecast-result" style="display: none;">
+                                <canvas id="forecast-result-chart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Policy Impact Simulator -->
+                    <div class="ai-tool-card">
+                        <h3>⚖️ Automated Policy Analysis</h3>
+                        <p>Using AI to evaluate economic policy impacts and optimize decision-making processes</p>
+                        
+                        <div class="tool-interface">
+                            <div class="input-group">
+                                <label for="policy-type" class="form-label">Policy Type</label>
+                                <select id="policy-type" class="form-control">
+                                    <option value="fiscal">Fiscal Policy</option>
+                                    <option value="monetary">Monetary Policy</option>
+                                    <option value="trade">Trade Policy</option>
+                                    <option value="environmental">Environmental Policy</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="impact-magnitude" class="form-label">Policy Magnitude</label>
+                                <input type="range" id="impact-magnitude" min="1" max="10" value="5" class="form-control">
+                                <span class="range-value">5</span>
+                            </div>
+                            
+                            <button id="simulate-policy" class="btn btn--primary">Simulate Impact</button>
+                            
+                            <div class="simulation-results">
+                                <!-- Results will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NLP Economic Analysis -->
+                    <div class="ai-tool-card">
+                        <h3>🔤 Natural Language Processing in Economics</h3>
+                        <p>Applying NLP techniques to analyze economic texts, reports, and market sentiment</p>
+                        
+                        <div class="tool-interface">
+                            <div class="input-group">
+                                <label for="nlp-input" class="form-label">Economic Text</label>
+                                <textarea id="nlp-input" class="form-control" placeholder="Enter economic text for sentiment analysis..." rows="4"></textarea>
+                            </div>
+                            
+                            <button onclick="analyzeText()" class="btn btn--primary">Analyze Sentiment</button>
+                            
+                            <div class="sentiment-analysis-result">
+                                <!-- Results will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trading Algorithm Demo -->
+                    <div class="ai-tool-card">
+                        <h3>📊 Algorithmic Trading Systems</h3>
+                        <p>Development of AI-driven trading algorithms and market prediction systems</p>
+                        
+                        <div class="tool-interface">
+                            <button onclick="runTradingSimulation()" class="btn btn--primary">Run Trading Simulation</button>
+                            
+                            <div class="trading-demo">
+                                <canvas id="trading-chart" width="300" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-profile">
+                        <div class="profile-image-large">
+                            <div class="profile-placeholder">FM</div>
+                        </div>
+                        <div class="profile-info">
+                            <h2>Frederic Mirindi, PhD Candidate</h2>
+                            <p class="title">PhD Candidate in Economics & Econometrics</p>
+                            <p class="affiliation">Lecturer - Booth University College</p>
+                            <p class="affiliation">Founder - ThinkBit Edge</p>
+                        </div>
+                    </div>
+
+                    <div class="about-details">
+                        <div class="bio-section">
+                            <h3>Biography</h3>
+                            <p>
+                                Frederic Mirindi is a PhD Candidate in Economics & Econometrics at the University of Manitoba. 
+                                He is a leading researcher specializing in artificial intelligence applications in economic analysis. 
+                                With extensive experience in machine learning models for economic forecasting and policy analysis, 
+                                he has pioneered innovative approaches to understanding economic phenomena through computational methods.
+                            </p>
+                        </div>
+
+                        <div class="expertise-section">
+                            <h3>Areas of Expertise</h3>
+                            <div class="expertise-grid">
+                                <div class="expertise-item">Artificial Intelligence</div>
+                                <div class="expertise-item">Machine Learning</div>
+                                <div class="expertise-item">Economic Forecasting</div>
+                                <div class="expertise-item">Policy Analysis</div>
+                                <div class="expertise-item">Econometrics</div>
+                                <div class="expertise-item">Data Science</div>
+                                <div class="expertise-item">Development Economics</div>
+                                <div class="expertise-item">Construction Technology</div>
+                            </div>
+                        </div>
+
+                        <!-- Teaching Section -->
+                        <div class="teaching-section">
+                            <h3>Courses I Teach at Booth University College</h3>
+                            <p class="courses-intro">
+                                As a Lecturer at Booth University College, I teach foundational courses that bridge 
+                                economic theory with practical applications and research methodologies.
+                            </p>
+                            
+                            <div class="courses-grid">
+                                <div class="course-card">
+                                    <div class="course-icon">📊</div>
+                                    <h4>Introduction to Microeconomics</h4>
+                                    <span class="course-code">ECON 1010</span>
+                                    <p class="course-description">
+                                        Fundamental principles of microeconomic theory including supply and demand, 
+                                        market structures, consumer behavior, and firm decision-making. Students learn 
+                                        to analyze individual economic units and their interactions in various market environments.
+                                    </p>
+                                    <div class="course-topics">
+                                        <span class="topic-tag">Supply & Demand</span>
+                                        <span class="topic-tag">Market Structures</span>
+                                        <span class="topic-tag">Consumer Theory</span>
+                                        <span class="topic-tag">Firm Decision-Making</span>
+                                    </div>
+                                </div>
+
+                                <div class="course-card">
+                                    <div class="course-icon">🔢</div>
+                                    <h4>Applied Mathematics</h4>
+                                    <span class="course-code">MATH 2050</span>
+                                    <p class="course-description">
+                                        Mathematical methods and applications in economics and business contexts. 
+                                        Coverage includes calculus, linear algebra, optimization techniques, and statistical 
+                                        foundations essential for economic modeling and analysis.
+                                    </p>
+                                    <div class="course-topics">
+                                        <span class="topic-tag">Calculus</span>
+                                        <span class="topic-tag">Linear Algebra</span>
+                                        <span class="topic-tag">Optimization</span>
+                                        <span class="topic-tag">Statistics</span>
+                                    </div>
+                                </div>
+
+                                <div class="course-card">
+                                    <div class="course-icon">🔬</div>
+                                    <h4>Research Methods</h4>
+                                    <span class="course-code">RESM 3010</span>
+                                    <p class="course-description">
+                                        Comprehensive introduction to quantitative and qualitative research methodologies 
+                                        in economics and social sciences. Students learn data collection, analysis techniques, 
+                                        research design, and academic writing skills.
+                                    </p>
+                                    <div class="course-topics">
+                                        <span class="topic-tag">Data Collection</span>
+                                        <span class="topic-tag">Statistical Analysis</span>
+                                        <span class="topic-tag">Research Design</span>
+                                        <span class="topic-tag">Academic Writing</span>
+                                    </div>
+                                </div>
+
+                                <div class="course-card">
+                                    <div class="course-icon">💻</div>
+                                    <h4>Business Information Systems</h4>
+                                    <span class="course-code">BIS 2020</span>
+                                    <p class="course-description">
+                                        Fundamental concepts of information systems in business contexts, focusing on how 
+                                        technology supports organizational strategy, decision-making, and operations. Students 
+                                        explore system design, data management, and the role of IT in modern organizations.
+                                    </p>
+                                    <div class="course-topics">
+                                        <span class="topic-tag">System Design</span>
+                                        <span class="topic-tag">Data Management</span>
+                                        <span class="topic-tag">IT Strategy</span>
+                                        <span class="topic-tag">Business Analytics</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="course-schedule">
+                                <h4>Office Hours</h4>
+                                <div class="schedule-info">
+                                    <div class="schedule-item">
+                                        <strong>Days:</strong>
+                                        Mondays & Fridays
+                                    </div>
+                                    <div class="schedule-item">
+                                        <strong>Time:</strong>
+                                        8:00-10:00 AM
+                                    </div>
+                                    <div class="schedule-item">
+                                        <strong>Location:</strong>
+                                        Office at Booth University College
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skills-section">
+                            <h3>Technical Skills</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-name">Python</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">R</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Machine Learning</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Econometrics</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Data Visualization</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Page -->
+        <section id="blog" class="page">
+            <div class="container">
+                <div class="blog-header">
+                    <h1>Blog</h1>
+                    <p>To access my latest blog publications and analyses, please visit:</p>
+                </div>
+
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="https://via.placeholder.com/340x200?text=Deep+Analysis" alt="Deep Analysis" class="blog-img">
+                        <div class="blog-content">
+                            <div class="blog-meta">Analysis</div>
+                            <h3 class="blog-title">Deep Analysis</h3>
+                            <p class="blog-summary">Economic trends, market dynamics, and policy implications.</p>
+                            <a href="#" class="blog-btn">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <img src="https://via.placeholder.com/340x200?text=Featured+Articles" alt="Featured Articles" class="blog-img">
+                        <div class="blog-content">
+                            <div class="blog-meta">Featured</div>
+                            <h3 class="blog-title">Featured Articles</h3>
+                            <p class="blog-summary">Digital finance, market volatility, sustainability, macroeconomics, AI impacts on labor markets, and global supply chains.</p>
+                            <a href="#" class="blog-btn">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <img src="https://via.placeholder.com/340x200?text=Popular+Topics" alt="Popular Topics" class="blog-img">
+                        <div class="blog-content">
+                            <div class="blog-meta">Popular</div>
+                            <h3 class="blog-title">Popular Topics</h3>
+                            <p class="blog-summary">CBDCs, inflation, AI economics, climate finance, cryptocurrency, market volatility, supply chain, and green economy.</p>
+                            <a href="#" class="blog-btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Twitter Feed -->
+                <div class="social-section">
+                    <h2>Latest Tweets</h2>
+                    <div class="tweets-container" id="latest-tweets">
+                        <a class="twitter-timeline" data-height="400" href="https://twitter.com/MirindiFrederic?ref_src=twsrc%5Etfw">Tweets by MirindiFrederic</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Contact Information</h1>
+                    <p>Get in touch for research collaborations, speaking opportunities, or academic inquiries</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>📧 Email</h3>
+                            <p>frederic.mirindi@umanitoba.ca</p>
+                            <p>frederic.mirindi@boothuc.ca</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>📞 Phone</h3>
+                            <p>+1 (204) 298-4337</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>🏢 Office</h3>
+                            <p>290 Vaughan St, Winnipeg, MB R3B 2N8</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>🕐 Office Hours</h3>
+                            <p>Mondays & Fridays, 8:00-10:00 AM</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Send a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" class="form-control" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Research Area Modal -->
+    <div id="research-area-modal" class="footnote-modal">
+        <div class="footnote-content">
+            <div class="footnote-header">
+                <h3 id="modal-title">Research Area Details</h3>
+                <button class="footnote-close" onclick="closeAreaModal()">×</button>
+            </div>
+            <div class="footnote-body" id="modal-body">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Main Sections</h4>
+                    <ul>
+                        <li><a href="#" data-page="research">Research</a></li>
+                        <li><a href="#" data-page="publications">Publications</a></li>
+                        <li><a href="#" data-page="conferences">Conferences</a></li>
+                        <li><a href="#" data-page="about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#" data-page="ai-implementation">AI Tools</a></li>
+                        <li><a href="#" data-page="academic-map">Academic Map</a></li>
+                        <li><a href="#" data-page="blog">Blog</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Transparency</h4>
+                    <ul>
+                        <li><a href="#">Authorship Details</a></li>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Frederic Mirindi. All rights reserved.</p>
+                <div class="citations-section">
+                    <h4>Citations & References</h4>
+                    <p>Citation information and academic references will be displayed here.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
