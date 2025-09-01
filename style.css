@@ -3922,24 +3922,24 @@ select.form-control {
 
 
 
-/* Ensure the widgets are displayed in one horizontal row */
+/* Desktop: horizontal row of cards */
 .widget-cards-row {
     display: flex;
     flex-direction: row;
-    gap: 32px;           /* Space between cards - adjust as needed */
+    gap: 32px;
     justify-content: center;
-    align-items: stretch; /* Vertically aligns all cards */
+    align-items: stretch;
     width: 100%;
-    flex-wrap: nowrap;   /* Prevent wrapping to next line on desktop */
+    flex-wrap: nowrap;
     margin: 0 auto;
     max-width: 1120px;
 }
 
-/* Widget cards styling for consistent width */
+/* Card styling remains consistent */
 .widget-card {
     flex: 1 1 0;
     max-width: 340px;
-    min-width: 220px;       /* Prevent cards from getting too narrow */
+    min-width: 220px;
     background: var(--color-surface, #fff);
     border-radius: var(--radius-lg, 12px);
     box-shadow: 0 2px 7px 0 var(--color-card-border, #ececec);
@@ -3948,6 +3948,25 @@ select.form-control {
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
-    /* Guarantee cards stay the same height */
     height: 100%;
+}
+
+/* MOBILE: stack cards vertically and allow full width */
+@media (max-width: 600px) {
+    .widget-cards-row {
+        flex-direction: column;
+        gap: 12px;            /* Slightly less space between cards on mobile */
+        align-items: stretch; /* Cards take full available width */
+        max-width: 100vw;
+        padding: 0 2vw;
+        flex-wrap: nowrap;
+    }
+    .widget-card {
+        max-width: 100vw;
+        min-width: unset;
+        width: 100%;          /* Full width for each card */
+        margin: 0 0 8px 0;    /* Add bottom margin for spacing */
+        border-radius: var(--radius-base, 8px); /* slightly smaller radius on mobile */
+        box-sizing: border-box;
+    }
 }
